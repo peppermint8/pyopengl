@@ -5,8 +5,7 @@ These are a few programs experimenting with OpenGL and python.  Pygame is also u
 
 Using python 3.10
 
-Installed libraries with mamba (conda):
-mamba install -c anaconda pyopengl pygame scipy numpy
+Installed libraries with mamba (conda): `mamba install -c anaconda pyopengl pygame scipy numpy`
 
 The python OpenGL demos use the w-a-s-d keys (& q+e for up/down) and mouse for looking.
 
@@ -36,3 +35,14 @@ Microbes was a TRS-80 Color Computer game from the 1980's that was very similar 
 
 Microbes is still a work in progress.
 
+## Zone
+
+Playing with connected OpenGL objects (sphere, cone) to point in the right direction when moving and make a tail wiggle.
+
+Learned about arctan2 which is cooler than arctan.
+
+## Solar System
+
+Model of our solar system with things roughly proportonal to each other.  Planets are scaled to each other.  Planet orbits scaled to each other, planet movement scaled to each other.  But the entire scale is off - and there is no sun because it would hide everything else.
+
+I didn't include Pluto because its not a planet.  (Ask Jerry and Morty)
