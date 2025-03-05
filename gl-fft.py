@@ -147,7 +147,7 @@ def draw_borders(stage_min, stage_max):
 
 def init_screen():
     pygame.init()
-    display = (1000, 800)
+    display = (1800, 1000) # 1920 x 1080
     #screen = pygame.display.set_mode((max_x, max_y))
     screen = pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
     pygame.mouse.set_visible(False)
@@ -220,7 +220,7 @@ def main(display, wav_file):
 
     # stage size
     stage_min = (0, 0, 0)
-    stage_max = (90, 50, 30)
+    stage_max = (90, 80, 80)
     
 
     # create objects
@@ -233,13 +233,12 @@ def main(display, wav_file):
     sy = 3
 
     # olist[0][] = row 0
-    y_range = 40
-    x_range = 20
+    y_range = 60 # 40
+    x_range = 30 # 20
 
-    for x in range(0,y_range):
+    for x in range(0, y_range):
         tmp_list = []
-        for y in range(0,x_range):
-
+        for y in range(0, x_range):
             
             px = mx + x * sx
             py = my + y * sy
@@ -250,8 +249,9 @@ def main(display, wav_file):
     
             o.set_min_max(stage_min, stage_max)
             o.clr = (0.41, 0.2, 0.9, 1.0)
-            #o.shape = "sphere"
-            o.shape = "cube"
+            #o.clr = (0.9, 0.2, 0.4, 1.0)
+            o.shape = "sphere"
+            #o.shape = "cube"
             o.id = f"{x}-{y}"
             o.xx = px
             o.yy = py
@@ -279,8 +279,8 @@ def main(display, wav_file):
     pygame.mixer.init()
     pygame.mixer.music.load(wav_file)
     pygame.mixer.music.play(0, 0.0)
-    #pygame.mixer.music.set_volume(1.0)    
-    pygame.mixer.music.set_volume(0.0)    
+    pygame.mixer.music.set_volume(1.0)    
+    #pygame.mixer.music.set_volume(0.0)    
 
     a = 0
     b = a + f_size
@@ -354,6 +354,14 @@ def main(display, wav_file):
             if keypress[pygame.K_e]:
                 if bubba.up(vv):
                     glTranslatef(0, -vv, 0)
+
+            if keypress[pygame.K_c]:
+                glRotatef(5*vv, 0.0, 1.0, 0.0)
+                bubba.aa += 5 * vv
+
+            if keypress[pygame.K_z]:
+                glRotatef(-5*vv, 0.0, 1.0, 0.0)
+                bubba.aa -= 5 * vv
 
 
             # apply the left and right rotation
@@ -432,7 +440,7 @@ def main(display, wav_file):
                     cnt += 1
             
 
-            draw_borders(stage_min, stage_max)
+            #draw_borders(stage_min, stage_max)
 
     
             # draw objects
@@ -492,15 +500,7 @@ def draw_text(x, y, text):
 
 if __name__ == '__main__':
 
-    
-
-    sound_file = sys.argv[1]
-    if sound_file.endswith(".wav"):
-        
-        wav_file = os.path.join("/home/bubba/git/sounds/", sound_file)
-    else:
-        print("Whatever man, you don't know me.")
-        sys.exit(0)
+    wav_file = sys.argv[1]
 
     screen = init_screen()
     font = pygame.font.SysFont('arial', 32)

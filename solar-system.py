@@ -637,6 +637,14 @@ def main(display):
             if keypress[pygame.K_l]:
                 light_flag = not light_flag
 
+            if keypress[pygame.K_c]:
+                glRotatef(5*vv, 0.0, 1.0, 0.0)
+                bubba.aa += 5 * vv
+
+            if keypress[pygame.K_z]:
+                glRotatef(-5*vv, 0.0, 1.0, 0.0)
+                bubba.aa -= 5 * vv
+
 
             # apply the left and right rotation
             glRotatef(mm[0]*vv, 0.0, 1.0, 0.0)
