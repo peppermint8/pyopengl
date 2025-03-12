@@ -736,13 +736,24 @@ def main(display):
                     if bubba.up(vv):
                         glTranslatef(0, -vv, 0)
 
+                if keypress[pygame.K_c]:
+                    glRotatef(5*vv, 0.0, 1.0, 0.0)
+                    bubba.aa += 5 * vv
+
+                if keypress[pygame.K_z]:
+                    glRotatef(-5*vv, 0.0, 1.0, 0.0)
+                    bubba.aa -= 5 * vv
+
+
             if keypress[pygame.K_m]:
                 move_flag = not move_flag
 
             if keypress[pygame.K_x]:
                 pass
                 # stop movement
-            
+
+
+
             #glTranslate(bubba.vx, bubba.vy, bubba.vz)
                 
 

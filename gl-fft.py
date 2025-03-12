@@ -279,8 +279,8 @@ def main(display, wav_file):
     pygame.mixer.init()
     pygame.mixer.music.load(wav_file)
     pygame.mixer.music.play(0, 0.0)
-    pygame.mixer.music.set_volume(1.0)    
-    #pygame.mixer.music.set_volume(0.0)    
+    #pygame.mixer.music.set_volume(1.0)    
+    pygame.mixer.music.set_volume(0.0)    
 
     a = 0
     b = a + f_size
@@ -363,6 +363,14 @@ def main(display, wav_file):
                 glRotatef(-5*vv, 0.0, 1.0, 0.0)
                 bubba.aa -= 5 * vv
 
+            if keypress[pygame.K_r]:
+                up_down_angle -= vv * 0.25
+                glRotatef(up_down_angle, 1.0, 0.0, 0.0)                
+                
+            if keypress[pygame.K_v]:
+                up_down_angle += vv * 0.25
+                glRotatef(up_down_angle, 1.0, 0.0, 0.0)      
+
 
             # apply the left and right rotation
             glRotatef(mm[0]*vv, 0.0, 1.0, 0.0)
@@ -439,6 +447,7 @@ def main(display, wav_file):
                     oo.zz0 = o_list[y-1][cnt].zz
                     cnt += 1
             
+
 
             #draw_borders(stage_min, stage_max)
 

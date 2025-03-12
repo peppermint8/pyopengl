@@ -560,6 +560,16 @@ def main(display):
                 glRotatef(-5*vv, 0.0, 1.0, 0.0)
                 bubba.aa -= 5 * vv
 
+            if keypress[pygame.K_r]:
+                up_down_angle -= vv * 0.25
+                glRotatef(up_down_angle, 1.0, 0.0, 0.0)                
+                
+            if keypress[pygame.K_v]:
+                up_down_angle += vv * 0.25
+                glRotatef(up_down_angle, 1.0, 0.0, 0.0)                
+
+
+
 
             # apply the left and right rotation
             glRotatef(mm[0]*vv, 0.0, 1.0, 0.0)
